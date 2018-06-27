@@ -21,8 +21,8 @@ DEFAULT_COLOR = "\033[0m"
 all: compile
 
 tests: compile
-	javac -cp $(JUNIT_JAR):$(SRC_CLASS_DIR) -d $(TEST_CLASS_DIR) $(TEST_DIR)/*.java
-	java -cp $(JUNIT_JAR):$(HARMCREST_JAR):$(TEST_CLASS_DIR):$(SRC_CLASS_DIR) $(JUNIT_MAIN) $(TEST_FILES)
+	@javac -cp $(JUNIT_JAR):$(SRC_CLASS_DIR) -d $(TEST_CLASS_DIR) $(TEST_DIR)/*.java
+	@java -cp $(JUNIT_JAR):$(HARMCREST_JAR):$(TEST_CLASS_DIR):$(SRC_CLASS_DIR) $(JUNIT_MAIN) $(TEST_FILES)
 
 compile: $(CLASS_DIRS)
 	@printf $(GREEN_COLOR)

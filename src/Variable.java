@@ -1,16 +1,11 @@
 public class Variable {
+
 	private int degree;
 	private int coefficient;
-
+	
 	public Variable(int degree, int coefficient) {
 		this.degree = degree;
 		this.coefficient = coefficient;
-	}
-
-	public void sum(Variable v) {
-		if (v.getDegree() != getDegree())
-			return;
-		v.setCoefficient(getCoefficient() + v.getCoefficient());
 	}
 
 	public int getDegree() {
