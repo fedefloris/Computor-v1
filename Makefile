@@ -13,7 +13,7 @@ CLASS_DIRS = $(TEST_CLASS_DIR) $(SRC_CLASS_DIR)
 SRC_DIR = src
 TEST_DIR = test
 
-TEST_FILES = VariableTest
+TEST_FILES = $(patsubst $(TEST_DIR)/%.java, %,$(shell find $(TEST_DIR) -name '*.java'))
 
 GREEN_COLOR = "\033[0;32m"
 YELLOW_COLOR = "\033[0;33m"
