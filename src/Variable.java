@@ -23,4 +23,5 @@ public class Variable {
 	public void setCoefficient(int coefficient) {
 		this.coefficient = coefficient;
 	}
+
 }

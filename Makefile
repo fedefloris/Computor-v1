@@ -16,6 +16,8 @@ TEST_DIR = test
 TEST_FILES = VariableTest
 
 GREEN_COLOR = "\033[0;32m"
+YELLOW_COLOR = "\033[0;33m"
+RED_COLOR = "\033[0;31m"
 DEFAULT_COLOR = "\033[0m"
 
 all: compile
@@ -25,9 +27,11 @@ tests: compile
 	@java -cp $(JUNIT_JAR):$(HARMCREST_JAR):$(TEST_CLASS_DIR):$(SRC_CLASS_DIR) $(JUNIT_MAIN) $(TEST_FILES)
 
 compile: $(CLASS_DIRS)
-	@printf $(GREEN_COLOR)
+	@printf $(YELLOW_COLOR)
 	@printf "Compiling... "
+	@printf $(RED_COLOR)
 	@javac -d $(SRC_CLASS_DIR) $(SRC_DIR)/*.java
+	@printf $(GREEN_COLOR)
 	@printf "[OK]\n"
 	@printf $(DEFAULT_COLOR)
 
@@ -35,9 +39,11 @@ $(CLASS_DIRS):
 	@mkdir -p $(CLASS_DIRS)
 
 clean:
-	@printf $(GREEN_COLOR)
+	@printf $(YELLOW_COLOR)
 	@printf "Cleaning... "
+	@printf $(RED_COLOR)
 	@rm -rf $(CLASS_DIRS) $(CLASS_DIR)
+	@printf $(GREEN_COLOR)
 	@printf "[OK]\n"
 	@printf $(DEFAULT_COLOR)	
 
