@@ -1,0 +1,46 @@
+EXT_DIR = ext
+
+JUNIT_JAR = $(EXT_DIR)/junit-4.12.jar
+JUNIT_MAIN = org.junit.runner.JUnitCore
+
+HARMCREST_JAR = $(EXT_DIR)/hamcrest-core-1.3.jar
+
+CLASS_DIR = class
+TEST_CLASS_DIR = $(CLASS_DIR)/test
+SRC_CLASS_DIR = $(CLASS_DIR)/src
+CLASS_DIRS = $(TEST_CLASS_DIR) $(SRC_CLASS_DIR)
+
+SRC_DIR = src
+TEST_DIR = test
+
+TEST_FILES = VariableTest
+
+GREEN_COLOR = "\033[0;32m"
+DEFAULT_COLOR = "\033[0m"
+
+all: compile
+
+tests: compile
+	javac -cp $(JUNIT_JAR):$(SRC_CLASS_DIR) -d $(TEST_CLASS_DIR) $(TEST_DIR)/*.java
+	java -cp $(JUNIT_JAR):$(HARMCREST_JAR):$(TEST_CLASS_DIR):$(SRC_CLASS_DIR) $(JUNIT_MAIN) $(TEST_FILES)
+
+compile: $(CLASS_DIRS)
+	@printf $(GREEN_COLOR)
+	@printf "Compiling... "
+	@javac -d $(SRC_CLASS_DIR) $(SRC_DIR)/*.java
+	@printf "[OK]\n"
+	@printf $(DEFAULT_COLOR)
+
+$(CLASS_DIRS):
+	@mkdir -p $(CLASS_DIRS)
+
+clean:
+	@printf $(GREEN_COLOR)
+	@printf "Cleaning... "
+	@rm -rf $(CLASS_DIRS) $(CLASS_DIR)
+	@printf "[OK]\n"
+	@printf $(DEFAULT_COLOR)	
+
+re: clean all
+
+.PHONY: all tests compile clean fclean re
