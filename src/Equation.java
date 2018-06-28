@@ -8,6 +8,10 @@ public class Equation {
 		variables = new ArrayList<Variable>();
 	}
 
+	public List<Variable> getVariables() {
+		return variables;
+	}
+
 	public void add(Variable v) {
 		int index;
 
@@ -15,6 +19,8 @@ public class Equation {
 			variables.get(index).add(v);
 		else
 			variables.add(v);
-	}	
+	}
+
+	// reduce equation
 
 }

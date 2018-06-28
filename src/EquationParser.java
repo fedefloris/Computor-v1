@@ -1,10 +1,18 @@
 public class EquationParser {
 
-	public Equation parse(String input) {
-		Equation equation;
+	private Equation equation;
 
+	public EquationParser() {
 		equation = new Equation();
+	}
+
+	public Equation parse(String input) {
+		parseVariables(input.split(" "));
 		return equation;
+	}
+
+	private void parseVariables(String tokens[]) {
+		
 	}
 
 }

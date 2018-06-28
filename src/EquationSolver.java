@@ -8,6 +8,7 @@ public class EquationSolver {
 
 	public void solve() {
 		
+		// get discriminant		
 	}
 	
 }
