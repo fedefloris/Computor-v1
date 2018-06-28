@@ -1,9 +1,9 @@
 public class Variable {
 
 	private int degree;
-	private int coefficient;
+	private double coefficient;
 	
-	public Variable(int degree, int coefficient) {
+	public Variable(int degree, double coefficient) {
 		this.degree = degree;
 		this.coefficient = coefficient;
 	}
@@ -18,7 +18,7 @@ public class Variable {
 		return this.degree;
 	}
 
-	public int getCoefficient() {
+	public double getCoefficient() {
 		return this.coefficient;
 	}
 
@@ -26,7 +26,7 @@ public class Variable {
 		this.degree = degree;
 	}
 
-	public void setCoefficient(int coefficient) {
+	public void setCoefficient(double coefficient) {
 		this.coefficient = coefficient;
 	}
 
@@ -34,7 +34,7 @@ public class Variable {
 		add(v.getCoefficient());
 	}
 
-	public void add(int coefficient) {
+	public void add(double coefficient) {
 		this.coefficient += coefficient;
 	}
 

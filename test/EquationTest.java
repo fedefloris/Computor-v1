@@ -5,6 +5,28 @@ import org.junit.Assert.*;
 public class EquationTest {
 
 	@Test
+	public void testToString() {
+		Equation equation;
+
+		equation = new Equation();
+		Assert.assertEquals(equation.toString(), "");
+		equation.add(new Variable(0, 2));
+		Assert.assertEquals(equation.toString(), "2 * X^0 = 0");
+		equation.add(new Variable(0, 2));
+		Assert.assertEquals(equation.toString(), "4 * X^0 = 0");
+		equation.add(new Variable(1, 5));
+		equation.add(new Variable(1, -1));
+		equation.add(new Variable(2, -9.3));
+		Assert.assertEquals(equation.toString(), "4 * X^0 + 4 * X^1 - 9.3 * X^2 = 0");
+		equation.add(new Variable(2, 9.3));
+		Assert.assertEquals(equation.toString(), "4 * X^0 + 4 * X^1 = 0");
+		equation.add(new Variable(1, -4));
+		Assert.assertEquals(equation.toString(), "4 * X^0 = 0");
+		equation.add(new Variable(0, -4));
+		Assert.assertEquals(equation.toString(), "");
+	}
+
+	@Test
 	public void testGetVariables() {
 		List<Variable> variables;
 		Equation equation;

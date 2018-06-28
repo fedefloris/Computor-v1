@@ -9,7 +9,7 @@ public class VariableTest {
 
 		v = new Variable(2, 10);
 		Assert.assertEquals(v.getDegree(), 2);
-		Assert.assertEquals(v.getCoefficient(), 10);
+		Assert.assertEquals(v.getCoefficient(), 10, 0);
 	}
 
 	@Test
@@ -41,9 +41,9 @@ public class VariableTest {
 
 		v = new Variable(2, 10);
 		v.setCoefficient(0);
-		Assert.assertEquals(v.getCoefficient(), 0);
+		Assert.assertEquals(v.getCoefficient(), 0, 0);
 		v.setCoefficient(1);
-		Assert.assertEquals(v.getCoefficient(), 1);
+		Assert.assertEquals(v.getCoefficient(), 1, 0);
 	}
 
 	@Test
@@ -53,10 +53,10 @@ public class VariableTest {
 		v1 = new Variable(2, 10);
 		v2 = new Variable(2, -10);
 		v1.add(v2);
-		Assert.assertEquals(v1.getCoefficient(), 0);
+		Assert.assertEquals(v1.getCoefficient(), 0, 0);
 		v1.add(-20);
-		Assert.assertEquals(v1.getCoefficient(), -20);
+		Assert.assertEquals(v1.getCoefficient(), -20, 0);
 		v1.add(45);
-		Assert.assertEquals(v1.getCoefficient(), 25);
+		Assert.assertEquals(v1.getCoefficient(), 25, 0);
 	}
 }
