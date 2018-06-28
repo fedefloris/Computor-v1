@@ -8,6 +8,12 @@ public class Variable {
 		this.coefficient = coefficient;
 	}
 
+	public boolean equals(Object v) {
+		if (v instanceof Variable)
+			return ((Variable)v).getDegree() == getDegree();
+		return false;
+	}
+
 	public int getDegree() {
 		return this.degree;
 	}
@@ -22,6 +28,14 @@ public class Variable {
 
 	public void setCoefficient(int coefficient) {
 		this.coefficient = coefficient;
+	}
+
+	public void add(Variable v) {
+		add(v.getCoefficient());
+	}
+
+	public void add(int coefficient) {
+		this.coefficient += coefficient;
 	}
 
 }

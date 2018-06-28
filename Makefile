@@ -45,7 +45,7 @@ clean:
 	@rm -rf $(CLASS_DIRS) $(CLASS_DIR)
 	@printf $(GREEN_COLOR)
 	@printf "[OK]\n"
-	@printf $(DEFAULT_COLOR)	
+	@printf $(DEFAULT_COLOR)
 
 re: clean all
 

@@ -13,6 +13,18 @@ public class VariableTest {
 	}
 
 	@Test
+	public void testEquals() {
+		Variable v1, v2;
+
+		v1 = new Variable(2, -123);
+		v2 = new Variable(2, 1123);
+		Assert.assertEquals(v1.equals(v2), true);
+		v2.setDegree(1);
+		Assert.assertEquals(v1.equals(v2), false);
+		Assert.assertEquals(v1.equals("test"), false);
+	}
+
+	@Test
 	public void testSetDegree() {
 		Variable v;
 
@@ -34,4 +46,17 @@ public class VariableTest {
 		Assert.assertEquals(v.getCoefficient(), 1);
 	}
 
+	@Test
+	public void testAdd() {
+		Variable v1, v2;
+
+		v1 = new Variable(2, 10);
+		v2 = new Variable(2, -10);
+		v1.add(v2);
+		Assert.assertEquals(v1.getCoefficient(), 0);
+		v1.add(-20);
+		Assert.assertEquals(v1.getCoefficient(), -20);
+		v1.add(45);
+		Assert.assertEquals(v1.getCoefficient(), 25);
+	}
 }
