@@ -3,7 +3,7 @@ EXT_DIR = ext
 JUNIT_JAR = $(EXT_DIR)/junit-4.12.jar
 JUNIT_MAIN = org.junit.runner.JUnitCore
 
-HARMCREST_JAR = $(EXT_DIR)/hamcrest-core-1.3.jar
+HAMCREST_JAR = $(EXT_DIR)/hamcrest-core-1.3.jar
 
 CLASS_DIR = class
 TEST_CLASS_DIR = $(CLASS_DIR)/test
@@ -24,7 +24,7 @@ all: compile
 
 tests: compile
 	@javac -cp $(JUNIT_JAR):$(SRC_CLASS_DIR) -d $(TEST_CLASS_DIR) $(TEST_DIR)/*.java
-	@java -cp $(JUNIT_JAR):$(HARMCREST_JAR):$(TEST_CLASS_DIR):$(SRC_CLASS_DIR) $(JUNIT_MAIN) $(TEST_FILES)
+	@java -cp $(JUNIT_JAR):$(HAMCREST_JAR):$(TEST_CLASS_DIR):$(SRC_CLASS_DIR) $(JUNIT_MAIN) $(TEST_FILES)
 
 compile: $(CLASS_DIRS)
 	@printf $(YELLOW_COLOR)
@@ -49,4 +49,4 @@ clean:
 
 re: clean all
 
-.PHONY: all tests compile clean fclean re
+.PHONY: all tests compile clean re

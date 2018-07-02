@@ -7,8 +7,8 @@ public class EquationSolver {
 	}
 
 	public void solve() {
-		
-		// get discriminant		
+		// get discriminant
+		System.out.println(equation);
 	}
-	
+
 }

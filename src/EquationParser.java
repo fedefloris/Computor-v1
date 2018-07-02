@@ -12,7 +12,7 @@ public class EquationParser {
 	}
 
 	private void parseVariables(String tokens[]) {
-		
+		equation.add(new Variable(1, 2));
 	}
 
 }

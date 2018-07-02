@@ -2,7 +2,7 @@ public class Variable {
 
 	private int degree;
 	private double coefficient;
-	
+
 	public Variable(int degree, double coefficient) {
 		this.degree = degree;
 		this.coefficient = coefficient;
@@ -12,6 +12,23 @@ public class Variable {
 		if (v instanceof Variable)
 			return ((Variable)v).getDegree() == getDegree();
 		return false;
+	}
+
+	public String toString() {
+		StringBuilder res;
+		double abs;
+		int temp;
+
+		res = new StringBuilder();
+		res.append(getCoefficient() >= 0 ? " + " : " - ");
+		abs = Math.abs(getCoefficient());
+		temp = (int)abs;
+		if (abs == temp)
+			res.append(String.valueOf(temp));
+		else
+			res.append(String.valueOf(abs));
+		res.append(" * X^" + getDegree());
+		return res.toString();
 	}
 
 	public int getDegree() {

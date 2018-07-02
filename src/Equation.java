@@ -10,27 +10,13 @@ public class Equation {
 
 	public String toString() {
 		StringBuilder res;
-		boolean first;
-		double abs;
-		int temp;
 
-		first = true;
 		res = new StringBuilder();
-		for(Variable v : variables) {
-			if (!first)
-				res.append(v.getCoefficient() >= 0 ? " + " : " - ");
-			else
-				first = false;
-			abs = Math.abs(v.getCoefficient());
-			temp = (int)abs;
-			if (abs == temp)
-				res.append(String.valueOf(temp));
-			else
-				res.append(String.valueOf(abs));
-			res.append(" * X^" + v.getDegree());
-		}
+		for(Variable v : variables)
+				res.append(v.toString());
 		if (variables.size() > 0)
 			res.append(" = 0");
+		res.delete(0, 3);
 		return res.toString();
 	}
 
@@ -48,6 +34,17 @@ public class Equation {
 		}
 		else
 			variables.add(v);
+	}
+
+	public int getDegree() {
+		int max;
+
+		max = 0;
+		for(Variable v : variables) {
+				if (max < v.getDegree())
+					max = v.getDegree();
+		}
+		return max;
 	}
 
 }

@@ -61,4 +61,22 @@ public class EquationTest {
 		Assert.assertTrue(variables.get(1).getDegree() == 2 && variables.get(1).getCoefficient() == 0);
 	}
 
+	@Test
+	public void testGetDegree() {
+		Equation equation;
+
+		equation = new Equation();
+		Assert.assertTrue(equation.getDegree() == 0);
+		equation.add(new Variable(1, 2));
+		Assert.assertTrue(equation.getDegree() == 1);
+		equation.add(new Variable(1, 1));
+		Assert.assertTrue(equation.getDegree() == 1);
+		equation.add(new Variable(2, 1));
+		Assert.assertTrue(equation.getDegree() == 2);
+		equation.add(new Variable(3, 1));
+		Assert.assertTrue(equation.getDegree() == 3);
+		equation.add(new Variable(3, -1));
+		Assert.assertTrue(equation.getDegree() == 2);
+	}
+
 }
