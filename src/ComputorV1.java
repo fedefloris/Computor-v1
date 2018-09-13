@@ -5,7 +5,7 @@ public class ComputorV1 {
 	}
 
 	public static void main(String args[]) {
-		EquationSolver solver;
+		IEquationSolver solver;
 		EquationParser parser;
 		Equation equation;
 
@@ -15,8 +15,8 @@ public class ComputorV1 {
 		}
 		parser = new EquationParser();
 		equation = parser.parse(args[0]);
-		solver = new EquationSolver(equation);
-		solver.solve();
+		solver = new EquationSolver();
+		solver.solve(equation);
 	}
-	
+
 }

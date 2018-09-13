@@ -24,6 +24,13 @@ public class Equation {
 		return variables;
 	}
 
+	public double getCoefficientGivenDegree(int degree) {
+		for(Variable v : variables)
+				if (v.getDegree() == degree)
+					return v.getCoefficient();
+		return 0;
+	}
+
 	public void add(Variable v) {
 		int index;
 
