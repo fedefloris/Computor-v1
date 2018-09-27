@@ -11,13 +11,14 @@ public class Equation {
 	public String toString() {
 		StringBuilder res;
 
+		if (variables.size() == 0)
+			return ("0 = 0");
 		res = new StringBuilder();
 		for(Variable v : variables) {
 				res.append(" ");
 				res.append(v.toString());
 		}
-		if (variables.size() > 0)
-			res.append(" = 0");
+		res.append(" = 0");
 		res.delete(0, 3);
 		return res.toString();
 	}
