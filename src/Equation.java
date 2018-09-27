@@ -12,8 +12,10 @@ public class Equation {
 		StringBuilder res;
 
 		res = new StringBuilder();
-		for(Variable v : variables)
+		for(Variable v : variables) {
+				res.append(" ");
 				res.append(v.toString());
+		}
 		if (variables.size() > 0)
 			res.append(" = 0");
 		res.delete(0, 3);

@@ -22,6 +22,21 @@ public class VariableTest {
 		v2.setDegree(1);
 		Assert.assertEquals(v1.equals(v2), false);
 		Assert.assertEquals(v1.equals("test"), false);
+		Assert.assertEquals(v1.equals(null), false);
+	}
+
+	@Test
+	public void testToString() {
+		Variable v1;
+
+		v1 = new Variable(2, 1);
+		Assert.assertEquals(v1.toString(), "+ 1 * X^2");
+		v1 = new Variable(0, 0);
+		Assert.assertEquals(v1.toString(), "+ 0 * X^0");
+		v1 = new Variable(0, 2.3);
+		Assert.assertEquals(v1.toString(), "+ 2.3 * X^0");
+		v1 = new Variable(2, -1.1);
+		Assert.assertEquals(v1.toString(), "- 1.1 * X^2");
 	}
 
 	@Test

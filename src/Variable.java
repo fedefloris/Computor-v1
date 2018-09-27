@@ -22,7 +22,7 @@ public class Variable {
 		int temp;
 
 		res = new StringBuilder();
-		res.append(getCoefficient() >= 0 ? " + " : " - ");
+		res.append(getCoefficient() >= 0 ? "+ " : "- ");
 		abs = Math.abs(getCoefficient());
 		temp = (int)abs;
 		if (abs == temp)
