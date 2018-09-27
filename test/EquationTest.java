@@ -5,6 +5,14 @@ import org.junit.Assert.*;
 public class EquationTest {
 
 	@Test
+	public void testConstructor() {
+		Equation equation;
+
+		equation = new Equation();
+		Assert.assertTrue(equation.getVariables() != null);
+	}
+
+	@Test
 	public void testToString() {
 		Equation equation;
 
@@ -76,6 +84,21 @@ public class EquationTest {
 		Assert.assertTrue(equation.getDegree() == 3);
 		equation.add(new Variable(3, -1));
 		Assert.assertTrue(equation.getDegree() == 2);
+	}
+
+	@Test
+	public void testGetCoefficientGivenDegree() {
+		Equation equation;
+
+		equation = new Equation();
+		equation.add(new Variable(0, -2));
+		Assert.assertTrue(equation.getCoefficientGivenDegree(0) == -2);
+		equation.add(new Variable(1, 0));
+		Assert.assertTrue(equation.getCoefficientGivenDegree(1) == 0);
+		equation.add(new Variable(2, 2));
+		Assert.assertTrue(equation.getCoefficientGivenDegree(2) == 2);
+		equation.add(new Variable(3, 2.3));
+		Assert.assertTrue(equation.getCoefficientGivenDegree(3) == 2.3);
 	}
 
 }
