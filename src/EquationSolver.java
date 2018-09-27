@@ -12,7 +12,7 @@ public class EquationSolver implements IEquationSolver {
 		int degree;
 
 		degree = equation.getDegree();
-		System.out.println(equation);
+		System.out.println("Reduced form: " + equation);
 		System.out.println("Polynomial degree: " + degree);
 		if (degree > 2)
 			System.out.println("The polynomial degree is strictly greater than 2, I can't solve");

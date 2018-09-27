@@ -1,9 +1,10 @@
 public class LinearEquationSolver implements IEquationSolver {
 
 	public void solve(Equation equation) {
-		double a = equation.getCoefficientGivenDegree(1);
-		double b = equation.getCoefficientGivenDegree(0);
+		double a, b;
 
+		a = equation.getCoefficientGivenDegree(1);
+		b = equation.getCoefficientGivenDegree(0);
 		if (a == 0) {
 			if (b == 0)
 				System.out.println("Every value for x is a solution");

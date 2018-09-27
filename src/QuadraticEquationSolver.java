@@ -1,26 +1,24 @@
 public class QuadraticEquationSolver implements IEquationSolver {
 
 	public void solve(Equation equation) {
-		double a = equation.getCoefficientGivenDegree(2);
-		double b = equation.getCoefficientGivenDegree(1);
-		double c = equation.getCoefficientGivenDegree(0);
-		double determinant = b * b - 4 * a * c;
+		double a, b, c, determinant;
 
-		System.out.println(determinant);
+		a = equation.getCoefficientGivenDegree(2);
+		b = equation.getCoefficientGivenDegree(1);
+		c = equation.getCoefficientGivenDegree(0);
+		determinant = b * b - 4 * a * c;
+		System.out.print("Discriminant is " + determinant + ", ");
 		if (determinant > 0) {
-			System.out.println("Discriminant is strictly positive, the two solutions are: ");
-			double x1 = (-b + -Math.sqrt(determinant)) / (2 * a);
-			double x2 = (-b + Math.sqrt(determinant)) / (2 * a);
-			System.out.println(x1);
-			System.out.println(x2);
+			System.out.println("the two solutions are: ");
+			System.out.println((-b + -Math.sqrt(determinant)) / (2 * a));
+			System.out.println((-b + Math.sqrt(determinant)) / (2 * a));
 		}
 		else if (determinant == 0) {
-			System.out.println("The solutions is:");
+			System.out.println("the solutions is:");
 			System.out.println((-b * Math.sqrt(determinant)) / (2 * a));
 		}
-		else {
-			System.out.println("No solutions");
-		}
+		else
+			System.out.println("no solutions.");
 	}
 
 }
