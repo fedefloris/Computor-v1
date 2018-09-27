@@ -39,7 +39,7 @@ public class EquationTest {
 		equation.add(new Variable(1, 0));
 		Assert.assertTrue(variables.size() == 1);
 		equation.add(new Variable(2, 0));
-		Assert.assertTrue(variables.size() == 2);
+		Assert.assertTrue(variables.size() == 1);
 	}
 
 	@Test
@@ -57,8 +57,7 @@ public class EquationTest {
 		Assert.assertTrue(variables.get(0).getDegree() == 1 && variables.get(0).getCoefficient() == 1);
 		Assert.assertTrue(variables.size() == 1);
 		equation.add(new Variable(2, 0));
-		Assert.assertTrue(variables.size() == 2);
-		Assert.assertTrue(variables.get(1).getDegree() == 2 && variables.get(1).getCoefficient() == 0);
+		Assert.assertTrue(variables.size() == 1);
 	}
 
 	@Test

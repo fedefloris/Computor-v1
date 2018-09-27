@@ -34,6 +34,8 @@ public class Equation {
 	public void add(Variable v) {
 		int index;
 
+		if (v.getCoefficient() == 0)
+			return;
 		if ((index = variables.indexOf(v)) != -1) {
 			variables.get(index).add(v);
 			if (variables.get(index).getCoefficient() == 0)

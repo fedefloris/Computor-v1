@@ -3,6 +3,8 @@ public class Variable {
 	private int degree;
 	private double coefficient;
 
+	public Variable() {}
+
 	public Variable(int degree, double coefficient) {
 		this.degree = degree;
 		this.coefficient = coefficient;

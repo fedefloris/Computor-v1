@@ -8,24 +8,24 @@ public class EquationSolver implements IEquationSolver {
 			System.out.println("The polynomial degree is strictly greater than 2, I can't solve");
 		else if (degree == 2)
 			solveTwoDegree(equation);
-		else if (degree == 1)
-			solveOneDegree(equation);
-		else {
-			solveZeroDegree(equation);
-		}
+		else
+			solveOneAndZeroDegree(equation);
 	}
 
-	private void solveZeroDegree(Equation equation) {
-
-	}
-
-	private void solveOneDegree(Equation equation) {
+	private void solveOneAndZeroDegree(Equation equation) {
 		double a = equation.getCoefficientGivenDegree(1);
 		double b = equation.getCoefficientGivenDegree(0);
-		if ()
-		double x1 = -b / a;
-		System.out.println("The solutions is:");
-		System.out.println(x1);
+		if (a == 0) {
+			if (b == 0)
+				System.out.println("Every value for x is a solution");
+			else
+				System.out.println("There is no solution because the equation is inconsistent");
+		}
+		else {
+			double x1 = -b / a;
+			System.out.println("The solutions is:");
+			System.out.println(x1);
+		}
 	}
 
 	private void solveTwoDegree(Equation equation) {
