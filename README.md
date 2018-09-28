@@ -4,7 +4,7 @@
 ## What is Computor_v1?
 For more details look at the [subject](subject.pdf)
 
-## How do I use the library?
+## How do I use it?
 ```
 git clone https://github.com/fedefloris/Computor_v1.git && cd Computor_v1 && make
 ```
