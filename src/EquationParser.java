@@ -30,8 +30,8 @@ public class EquationParser {
 			if (end < input.length() && input.charAt(end) == '=') {
 				sign *= -1.0;
 				end++;
-			}
 			i = end;
+		}
 		}
 	}
 

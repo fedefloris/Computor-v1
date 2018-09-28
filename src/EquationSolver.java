@@ -13,9 +13,9 @@ public class EquationSolver implements IEquationSolver {
 
 		degree = equation.getDegree();
 		System.out.println("Reduced form: " + equation);
-		System.out.println("Polynomial degree: " + degree);
+		System.out.println("Degree: " + degree);
 		if (degree > 2)
-			System.out.println("The polynomial degree is strictly greater than 2, I can't solve");
+			System.out.println("The degree is strictly greater than 2, I can't solve");
 		else if (degree == 2)
 			quadraticEquationSolver.solve(equation);
 		else
