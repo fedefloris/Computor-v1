@@ -16,7 +16,7 @@ public class EquationParser {
 			end = i + 1;
 			while (end < input.length() && input.charAt(end) != '*')
 				end++;
-			float f = Float.parseFloat(input.substring(i, end));
+			double f = Double.parseDouble(input.substring(i, end));
 			f *= sign;
 			i = end + 3;
 			end = i + 1;
@@ -30,8 +30,8 @@ public class EquationParser {
 			if (end < input.length() && input.charAt(end) == '=') {
 				sign *= -1.0;
 				end++;
+			}
 			i = end;
-		}
 		}
 	}
 
