@@ -27,7 +27,7 @@ public class Equation {
 		return variables;
 	}
 
-	public double getCoefficientGivenDegree(int degree) {
+	public double getCoefficientOf(int degree) {
 		for(Variable v : variables)
 				if (v.getDegree() == degree)
 					return v.getCoefficient();

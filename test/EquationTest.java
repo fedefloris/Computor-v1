@@ -87,18 +87,18 @@ public class EquationTest {
 	}
 
 	@Test
-	public void testGetCoefficientGivenDegree() {
+	public void testgetCoefficientOf() {
 		Equation equation;
 
 		equation = new Equation();
 		equation.add(new Variable(0, -2));
-		Assert.assertTrue(equation.getCoefficientGivenDegree(0) == -2);
+		Assert.assertTrue(equation.getCoefficientOf(0) == -2);
 		equation.add(new Variable(1, 0));
-		Assert.assertTrue(equation.getCoefficientGivenDegree(1) == 0);
+		Assert.assertTrue(equation.getCoefficientOf(1) == 0);
 		equation.add(new Variable(2, 2));
-		Assert.assertTrue(equation.getCoefficientGivenDegree(2) == 2);
+		Assert.assertTrue(equation.getCoefficientOf(2) == 2);
 		equation.add(new Variable(3, 2.3));
-		Assert.assertTrue(equation.getCoefficientGivenDegree(3) == 2.3);
+		Assert.assertTrue(equation.getCoefficientOf(3) == 2.3);
 	}
 
 }

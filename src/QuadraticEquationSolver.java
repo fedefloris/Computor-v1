@@ -1,24 +1,33 @@
 public class QuadraticEquationSolver implements IEquationSolver {
 
 	public void solve(Equation equation) {
-		double a, b, c, determinant;
+		double a, b, c, det;
 
-		a = equation.getCoefficientGivenDegree(2);
-		b = equation.getCoefficientGivenDegree(1);
-		c = equation.getCoefficientGivenDegree(0);
-		determinant = b * b - 4 * a * c;
-		System.out.println("Discriminant: " + determinant);
-		if (determinant > 0) {
-			System.out.println("The two solutions are: ");
-			System.out.println((-b + -Math.sqrt(determinant)) / (2 * a));
-			System.out.println((-b + Math.sqrt(determinant)) / (2 * a));
-		}
-		else if (determinant == 0) {
-			System.out.println("The solutions is:");
-			System.out.println((-b * Math.sqrt(determinant)) / (2 * a));
-		}
+		a = equation.getCoefficientOf(2);
+		b = equation.getCoefficientOf(1);
+		c = equation.getCoefficientOf(0);
+		det = b * b - 4 * a * c;
+		System.out.println("Discriminant: " + det);
+		if (det == 0)
+			solveZeroDet(det, a, b);
 		else
-			System.out.println("No solutions.");
+			solveNonZeroDet(det, a, b);
+	}
+
+	private void solveZeroDet(double det, double a, double b) {
+		System.out.println("The solutions is:");
+		System.out.println((-b * Math.sqrt(det)) / (2 * a));
+	}
+
+	private void solveNonZeroDet(double det, double a, double b) {
+		System.out.println("The two solutions are: ");
+		String i = "";
+		if (det < 0) {
+			det *= -1;
+			i = "i";
+		}
+		System.out.println((-b + -Math.sqrt(det)) / (2 * a) + i);
+		System.out.println((-b + Math.sqrt(det)) / (2 * a) + i);
 	}
 
 }
