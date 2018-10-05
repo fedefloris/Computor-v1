@@ -20,14 +20,16 @@ public class QuadraticEquationSolver implements IEquationSolver {
 	}
 
 	private void solveNonZeroDet(double det, double a, double b) {
-		System.out.println("The two solutions are: ");
-		String i = "";
+		String immaginary;
+
+		immaginary = "";
 		if (det < 0) {
 			det *= -1;
-			i = "i";
+			immaginary = "i";
 		}
-		System.out.println((-b + -Math.sqrt(det)) / (2 * a) + i);
-		System.out.println((-b + Math.sqrt(det)) / (2 * a) + i);
+		System.out.println("The two solutions are: ");
+		System.out.println((-b + -Math.sqrt(det)) / (2 * a) + immaginary);
+		System.out.println((-b + Math.sqrt(det)) / (2 * a) + immaginary);
 	}
 
 }
