@@ -1,7 +1,9 @@
 # Computor_v1 - 42Born2Code
-
+A program that solves a polynomial equation of degree less than or equal to 2.
 
 ## What is Computor_v1?
+The goal of this project is to get comfortable with the manipulation of polynomial equations.
+
 For more details look at the [subject](subject.pdf)
 
 ## How do I use it?
