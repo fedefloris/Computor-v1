@@ -12,7 +12,7 @@ git clone https://github.com/fedefloris/Computor_v1.git && cd Computor_v1 && mak
 java -cp class/src ComputorV1 "1 * X ^ 2 = -1 * X ^ 0"
 ```
 
-## How do I use it?
+## How can I test it?
 
 ```
 make tests
