@@ -7,16 +7,16 @@ The goal of this project is to get comfortable with the manipulation of polynomi
 For more details look at the [subject](subject.pdf)
 
 ## How do I use it?
-```
+```console
 git clone https://github.com/fedefloris/Computor_v1.git && cd Computor_v1 && make
 ```
-```
+```console
 java -cp class/src ComputorV1 "1 * X ^ 2 = -1 * X ^ 0"
 ```
 
 ## How can I test it?
 
-```
+```console
 make tests
 ```
 
