@@ -5,14 +5,12 @@ public class EquationParser {
 
 		EquationTokenizer tokenizer = new EquationTokenizer();
 		addTokenPatterns(tokenizer);
-    try
-    {
+    try {
 			tokenizer.tokenize(input.replace(" ", ""));
       for (Token tok : tokenizer.getTokens())
       	System.out.println("" + tok.id + " " + tok.value);
     }
-    catch (ParserException e)
-    {
+    catch (ParserException e) {
       System.out.println(e.getMessage());
     }
 		equation = new Equation();

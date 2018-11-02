@@ -3,36 +3,30 @@ import java.util.LinkedList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class EquationTokenizer
-{
+public class EquationTokenizer {
+
   private List<TokenPattern> tokenPatterns;
   private List<Token> tokens;
 
-  public EquationTokenizer()
-  {
+  public EquationTokenizer() {
     tokens = new LinkedList<Token>();
     tokenPatterns = new LinkedList<TokenPattern>();
   }
 
-  public void add(String regex, int id)
-  {
+  public void add(String regex, int id) {
     TokenPattern pattern;
 
     pattern = new TokenPattern(Pattern.compile("^("+regex+")"), id);
     tokenPatterns.add(pattern);
   }
 
-  public void tokenize(String str)
-  {
+  public void tokenize(String str) {
     tokens.clear();
-    while (!str.equals(""))
-    {
+    while (!str.equals("")) {
       boolean match = false;
-      for (TokenPattern pattern : tokenPatterns)
-      {
+      for (TokenPattern pattern : tokenPatterns) {
         Matcher m = pattern.regex.matcher(str);
-        if (m.find())
-        {
+        if (m.find()) {
           match = true;
           String tok = m.group().trim();
           str = m.replaceFirst("").trim();
@@ -45,8 +39,7 @@ public class EquationTokenizer
     }
   }
 
-  public List<Token> getTokens()
-  {
+  public List<Token> getTokens() {
     return tokens;
   }
 
