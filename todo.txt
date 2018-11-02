@@ -1,5 +1,4 @@
 - solved 3rd degree
-- approximate any degree
 - syntax error parsing
 - EquationParserTest and EquatioSolverTest
 - replace *.java with actual files inside Makefile
