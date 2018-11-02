@@ -7,7 +7,6 @@ public class TokenPattern
 
   public TokenPattern(Pattern regex, int id)
   {
-    super();
     this.regex = regex;
     this.id = id;
   }
