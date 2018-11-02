@@ -1,11 +1,11 @@
 public class Token {
 
-  public final int id;
+  public final TokenType type;
   public final String value;
 
-  public Token(String value, int id) {
+  public Token(String value, TokenType type) {
     this.value = value;
-    this.id = id;
+    this.type = type;
   }
 
 }

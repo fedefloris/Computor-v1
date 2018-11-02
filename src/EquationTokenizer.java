@@ -1,5 +1,5 @@
 import java.util.List;
-import java.util.LinkedList;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -9,33 +9,36 @@ public class EquationTokenizer {
   private List<Token> tokens;
 
   public EquationTokenizer() {
-    tokens = new LinkedList<Token>();
-    tokenPatterns = new LinkedList<TokenPattern>();
+    tokens = new ArrayList<Token>();
+    tokenPatterns = new ArrayList<TokenPattern>();
   }
 
-  public void add(String regex, int id) {
+  public void add(String regex, TokenType type) {
     TokenPattern pattern;
 
-    pattern = new TokenPattern(Pattern.compile("^("+regex+")"), id);
+    pattern = new TokenPattern(Pattern.compile("^("+regex+")"), type);
     tokenPatterns.add(pattern);
   }
 
-  public void tokenize(String str) {
+  public void tokenize(String input) {
+    String value;
+    boolean match;
+
     tokens.clear();
-    while (!str.equals("")) {
-      boolean match = false;
+    while (!input.equals("")) {
+      match = false;
       for (TokenPattern pattern : tokenPatterns) {
-        Matcher m = pattern.regex.matcher(str);
+        Matcher m = pattern.regex.matcher(input);
         if (m.find()) {
           match = true;
-          String tok = m.group().trim();
-          str = m.replaceFirst("").trim();
-          tokens.add(new Token(tok, pattern.id));
+          value = m.group();
+          input = input.substring(value.length());
+          tokens.add(new Token(value, pattern.type));
           break;
         }
       }
       if (!match)
-        throw new ParserException("Unexpected character in input: " + str);
+        throw new ParserException("Invalid Syntax: " + input);
     }
   }
 

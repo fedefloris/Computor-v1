@@ -3,11 +3,11 @@ import java.util.regex.Pattern;
 public class TokenPattern {
 
   public final Pattern regex;
-  public final int id;
+  public final TokenType type;
 
-  public TokenPattern(Pattern regex, int id) {
+  public TokenPattern(Pattern regex, TokenType type) {
     this.regex = regex;
-    this.id = id;
+    this.type = type;
   }
 
 }

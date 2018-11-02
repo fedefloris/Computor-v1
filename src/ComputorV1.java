@@ -13,10 +13,15 @@ public class ComputorV1 {
 			displayUsage();
 			return ;
 		}
-		parser = new EquationParser();
-		equation = parser.parse(args[0]);
-		solver = new EquationSolver();
-		solver.solve(equation);
+		try {
+			parser = new EquationParser();
+			equation = parser.parse(args[0]);
+			solver = new EquationSolver();
+			solver.solve(equation);
+		}
+		catch (ParserException e) {
+      System.out.println(e.getMessage());
+    }
 	}
 
 }
