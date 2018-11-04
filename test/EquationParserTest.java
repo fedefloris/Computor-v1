@@ -55,14 +55,4 @@ public class EquationParserTest {
 		}
 	}
 
-	@Test
-	public void testParseDegree() {
-		EquationParser parser;
-		Equation equation;
-
-		parser = new EquationParser();
-		// equation = parser.parse("");
-		// Assert.assertEquals(equation.toString(), "0 = 0");
-	}
-
 }
