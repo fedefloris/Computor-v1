@@ -40,6 +40,21 @@ public class EquationParserTest {
 		testInvalidInputs(inputs);
 	}
 
+	@Test
+	public void testInvalidEqualsSign() {
+		List<String> inputs;
+
+		inputs = new ArrayList<String>();
+		inputs.add("2*x^1=0=0");
+		inputs.add("2*x^1==");
+		inputs.add("0=0=2*x^1");
+		inputs.add("0==2*x^1");
+		inputs.add("2*x^1=2*x^1=2*x^1");
+		inputs.add("2*x^1==2*x^1");
+		inputs.add("==2*x^1");
+		testInvalidInputs(inputs);
+	}
+
 	public void testInvalidInputs(List<String> inputs) {
 		EquationParser parser;
 
