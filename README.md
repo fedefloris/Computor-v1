@@ -1,8 +1,8 @@
 # Computor_v1 - 42Born2Code
-A program that solves a polynomial equation of degree less than or equal to 2.
+[![Build Status](https://travis-ci.com/fedefloris/Computor_v1.svg?token=dH8C3CpkpNBzxeKzZ8gb&branch=master)](https://travis-ci.com/fedefloris/Computor_v1)
 
 ## What is Computor_v1?
-The goal of this project is to get comfortable with the manipulation of polynomial equations.
+Computor_v1 is a program that solves polynomial equations of degree less or equal to 2.
 
 For more details look at the [subject](subject.pdf)
 
