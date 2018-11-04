@@ -3,4 +3,3 @@
 - EquationParserTest and EquatioSolverTest
 - replace *.java with actual files inside Makefile
 - implement sqrt
-
