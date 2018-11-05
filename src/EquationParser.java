@@ -11,8 +11,6 @@ public class EquationParser {
 		input = input.replace(" ", "").toLowerCase();
 		addTokenPatterns(tokenizer);
 		tokenizer.tokenize(input);
-    for (Token tok : tokenizer.getTokens())
-    	System.out.println("" + tok.getType() + " " + tok.getValue());
 		parseTokens(equation, tokenizer.getTokens());
 		return (equation);
 	}
@@ -27,32 +25,23 @@ public class EquationParser {
 		double coefficient;
 		int equalsCount;
 		double sign;
-		Token token;
 
 		equalsCount = 0;
 		coefficient = sign = 1.0;
-		for (int i = 0; i < tokens.size(); i++) {
-			token = tokens.get(i);
+		for (Token token : tokens.getTokens()) {
 			if (token.getType() == TokenType.COEFFICIENT) {
 				if (!token.getValue().endsWith("*")) {
 					coefficient = Double.parseDouble(token.getValue());
 					equation.add(new Variable(0, coefficient * sign));
 					coefficient = 1.0;
 				}
-				else {
+				else
 					coefficient = Double.parseDouble(token.getValue().replace("*", ""));
-				}
 			}
 			else if (token.getType() == TokenType.VARIABLE) {
 				if (token.getValue().startsWith("-"))
 					coefficient = -1.0;
-				String value = token.getValue().replaceAll("^+|-", "");
-				int degree = 1;
-				if (token.getValue().startsWith("x^")) {
-					String degreeStr = token.getValue().substring(token.getValue()	.indexOf('^') + 1);
-					degree = Integer.parseInt(degreeStr);
-				}
-				equation.add(new Variable(degree, coefficient * sign));
+				equation.add(new Variable(parseDegree(token.getValue()), coefficient * sign));
 				coefficient = 1.0;
 			}
 			else if (token.getType() == TokenType.EQUALS_SIGN) {
@@ -62,6 +51,17 @@ public class EquationParser {
 					throw new ParserException("Invalid Syntax: " + token.getValue());
 			}
 		}
+	}
+
+	private void parseDegree(String value) {
+		int powerIndex;
+		int degree;
+
+		degree = 1;
+		powerIndex = value.indexOf('^');
+		if (powerIndex != -1)
+			degree = Integer.parseInt(value.substring(powerIndex + 1));
+		return (degree);
 	}
 
 }
