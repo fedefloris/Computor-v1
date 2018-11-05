@@ -16,6 +16,17 @@ public class EquationParserTest {
 	}
 
 	@Test
+	public void testInvalidEquations() {
+		List<String> inputs;
+
+		inputs = new ArrayList<String>();
+		inputs.add("a");
+		inputs.add("hello");
+		inputs.add(".");
+		testInvalidInputs(inputs);
+	}
+
+	@Test
 	public void testInvalidCoefficient() {
 		List<String> inputs;
 
@@ -45,6 +56,7 @@ public class EquationParserTest {
 		List<String> inputs;
 
 		inputs = new ArrayList<String>();
+		inputs.add("==");
 		inputs.add("2*x^1=0=0");
 		inputs.add("2*x^1==");
 		inputs.add("0=0=2*x^1");
