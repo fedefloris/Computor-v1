@@ -19,7 +19,7 @@ public class EquationParser {
 
 	private void addTokenPatterns(EquationTokenizer tokenizer) {
 		tokenizer.add("(\\+|-)?[0-9]+(\\.[0-9]+)?\\*?", TokenType.COEFFICIENT);
-    tokenizer.add("(\\+|-)?(x|X)(\\^[0-9]+)?", TokenType.VARIABLE);
+    tokenizer.add("(\\+|-)?x(\\^[0-9]+)?", TokenType.VARIABLE);
     tokenizer.add("=", TokenType.EQUALS_SIGN);
 	}
 
@@ -47,8 +47,11 @@ public class EquationParser {
 				if (token.value.startsWith("-"))
 					coefficient = -1.0;
 				String value = token.value.replaceAll("^+|-", "");
-				String degreeStr = token.value.substring(token.value.indexOf('^') + 1);
-				int degree = Integer.parseInt(degreeStr);
+				int degree = 1;
+				if (token.value.startsWith("x^")) {
+					String degreeStr = token.value.substring(token.value.indexOf('^') + 1);
+					degree = Integer.parseInt(degreeStr);
+				}
 				equation.add(new Variable(degree, coefficient * sign));
 				coefficient = 1.0;
 			}
