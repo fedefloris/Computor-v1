@@ -28,7 +28,7 @@ public class EquationParser {
 
 		equalsCount = 0;
 		coefficient = sign = 1.0;
-		for (Token token : tokens.getTokens()) {
+		for (Token token : tokens) {
 			if (token.getType() == TokenType.COEFFICIENT) {
 				if (!token.getValue().endsWith("*")) {
 					coefficient = Double.parseDouble(token.getValue());
@@ -53,7 +53,7 @@ public class EquationParser {
 		}
 	}
 
-	private void parseDegree(String value) {
+	private int parseDegree(String value) {
 		int powerIndex;
 		int degree;
 

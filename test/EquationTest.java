@@ -1,6 +1,6 @@
-import java.util.*;
-import org.junit.*;
-import org.junit.Assert.*;
+import java.util.List;
+import org.junit.Assert;
+import org.junit.Test;
 
 public class EquationTest {
 

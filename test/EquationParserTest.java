@@ -5,12 +5,12 @@ import org.junit.Test;
 
 public class EquationParserTest {
 
+	private final EquationParser parser = new EquationParser();
+
 	@Test
 	public void testParseEmpty() {
-		EquationParser parser;
 		Equation equation;
 
-		parser = new EquationParser();
 		equation = parser.parse("");
 		Assert.assertEquals(equation.toString(), "0 = 0");
 	}
@@ -68,9 +68,6 @@ public class EquationParserTest {
 	}
 
 	public void testInvalidInputs(List<String> inputs) {
-		EquationParser parser;
-
-		parser = new EquationParser();
 		for (String input : inputs) {
 			try {
 				parser.parse(input);
