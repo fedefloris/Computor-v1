@@ -1,10 +1,5 @@
 public class Variable {
 
-	public final char POW = '^',
-										DOT = '*',
-										PLUS = '+',
-										MINUS = '-';
-
 	private int degree;
 	private double coefficient;
 
@@ -27,7 +22,7 @@ public class Variable {
 		int temp;
 
 		res = new StringBuilder();
-		res.append((getCoefficient() >= 0 ? PLUS : MINUS) + " ");
+		res.append(getCoefficient() >= 0 ? "+ " : "- ");
 		if ((abs = getCoefficient()) < 0)
 			abs *= -1;
 		temp = (int)abs;
@@ -35,8 +30,7 @@ public class Variable {
 			res.append(String.valueOf(temp));
 		else
 			res.append(String.valueOf(abs));
-		res.append(" " + DOT + " X" + POW);
-		res.append(getDegree());
+		res.append(" * X^" + getDegree());
 		return res.toString();
 	}
 
