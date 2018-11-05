@@ -12,9 +12,9 @@ public class EquationParser {
 		addTokenPatterns(tokenizer);
 		tokenizer.tokenize(input);
     for (Token tok : tokenizer.getTokens())
-    	System.out.println("" + tok.type + " " + tok.value);
+    	System.out.println("" + tok.getType() + " " + tok.getValue());
 		parseTokens(equation, tokenizer.getTokens());
-		return equation;
+		return (equation);
 	}
 
 	private void addTokenPatterns(EquationTokenizer tokenizer) {
@@ -33,30 +33,33 @@ public class EquationParser {
 		coefficient = sign = 1.0;
 		for (int i = 0; i < tokens.size(); i++) {
 			token = tokens.get(i);
-			if (token.type == TokenType.COEFFICIENT) {
-				if (!token.value.endsWith("*")) {
-					coefficient = Double.parseDouble(token.value);
+			if (token.getType() == TokenType.COEFFICIENT) {
+				if (!token.getValue().endsWith("*")) {
+					coefficient = Double.parseDouble(token.getValue());
 					equation.add(new Variable(0, coefficient * sign));
 					coefficient = 1.0;
 				}
 				else {
-					coefficient = Double.parseDouble(token.value.replace("*", ""));
+					coefficient = Double.parseDouble(token.getValue().replace("*", ""));
 				}
 			}
-			else if (token.type == TokenType.VARIABLE) {
-				if (token.value.startsWith("-"))
+			else if (token.getType() == TokenType.VARIABLE) {
+				if (token.getValue().startsWith("-"))
 					coefficient = -1.0;
-				String value = token.value.replaceAll("^+|-", "");
-				String degreeStr = token.value.substring(token.value.indexOf('^') + 1);
-				int degree = Integer.parseInt(degreeStr);
+				String value = token.getValue().replaceAll("^+|-", "");
+				int degree = 1;
+				if (token.getValue().startsWith("x^")) {
+					String degreeStr = token.getValue().substring(token.getValue()	.indexOf('^') + 1);
+					degree = Integer.parseInt(degreeStr);
+				}
 				equation.add(new Variable(degree, coefficient * sign));
 				coefficient = 1.0;
 			}
-			else if (token.type == TokenType.EQUALS_SIGN) {
+			else if (token.getType() == TokenType.EQUALS_SIGN) {
 				equalsCount++;
 				sign *= -1;
 				if (equalsCount > 1)
-					throw new ParserException("Invalid Syntax: " + token.value);
+					throw new ParserException("Invalid Syntax: " + token.getValue());
 			}
 		}
 	}

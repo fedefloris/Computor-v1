@@ -1,11 +1,19 @@
 public class Token {
 
-  public final TokenType type;
-  public final String value;
+  private final TokenType type;
+  private final String value;
 
   public Token(String value, TokenType type) {
     this.value = value;
     this.type = type;
+  }
+
+  public TokenType getType() {
+    return (type);
+  }
+
+  public String getValue() {
+    return (value);
   }
 
 }

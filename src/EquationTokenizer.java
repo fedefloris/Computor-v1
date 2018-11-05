@@ -28,12 +28,12 @@ public class EquationTokenizer {
     while (!input.equals("")) {
       match = false;
       for (TokenPattern pattern : tokenPatterns) {
-        Matcher m = pattern.regex.matcher(input);
+        Matcher m = pattern.getRegex().matcher(input);
         if (m.find()) {
           match = true;
           value = m.group();
           input = input.substring(value.length());
-          tokens.add(new Token(value, pattern.type));
+          tokens.add(new Token(value, pattern.getType()));
           break;
         }
       }
@@ -43,7 +43,7 @@ public class EquationTokenizer {
   }
 
   public List<Token> getTokens() {
-    return tokens;
+    return (tokens);
   }
 
 }

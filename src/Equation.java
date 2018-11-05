@@ -21,18 +21,18 @@ public class Equation {
 		}
 		res.append(" = 0");
 		res.delete(0, 3);
-		return res.toString();
+		return (res.toString());
 	}
 
 	public List<Variable> getVariables() {
-		return variables;
+		return (variables);
 	}
 
 	public double getCoefficientOf(int degree) {
 		for(Variable v : variables)
 				if (v.getDegree() == degree)
-					return v.getCoefficient();
-		return 0;
+					return (v.getCoefficient());
+		return (0);
 	}
 
 	public void add(Variable v) {
@@ -57,7 +57,7 @@ public class Equation {
 				if (max < v.getDegree())
 					max = v.getDegree();
 		}
-		return max;
+		return (max);
 	}
 
 }
