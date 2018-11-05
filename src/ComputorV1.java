@@ -1,27 +1,34 @@
 public class ComputorV1 {
 
-	private static void displayUsage() {
-		System.out.println("Usage: ./computor equation");
-	}
-
 	public static void main(String args[]) {
-		IEquationSolver solver;
-		EquationParser parser;
-		Equation equation;
-
 		if (args.length != 1) {
 			displayUsage();
 			return ;
 		}
 		try {
-			parser = new EquationParser();
-			equation = parser.parse(args[0]);
-			solver = new EquationSolver();
-			solver.solve(equation);
+			solve(parse(args[0]));
 		}
 		catch (ParserException e) {
       System.out.println(e.getMessage());
     }
+	}
+
+	private static void displayUsage() {
+		System.out.println("Usage: ./computor equation");
+	}
+
+	private static Equation parse(String input) {
+		EquationParser parser;
+
+		parser = new EquationParser();
+		return (parser.parse(input));
+	}
+
+	private static void solve(Equation equation) {
+		IEquationSolver solver;
+
+		solver = new EquationSolver();
+		solver.solve(equation);
 	}
 
 }
