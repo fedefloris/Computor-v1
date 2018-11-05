@@ -43,7 +43,7 @@ public class EquationTokenizer {
   }
 
   public List<Token> getTokens() {
-    return tokens;
+    return (tokens);
   }
 
 }

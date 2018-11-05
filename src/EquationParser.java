@@ -14,7 +14,7 @@ public class EquationParser {
     for (Token tok : tokenizer.getTokens())
     	System.out.println("" + tok.getType() + " " + tok.getValue());
 		parseTokens(equation, tokenizer.getTokens());
-		return equation;
+		return (equation);
 	}
 
 	private void addTokenPatterns(EquationTokenizer tokenizer) {
