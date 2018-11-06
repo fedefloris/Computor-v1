@@ -35,7 +35,10 @@ public class EquationSolverTest {
 			{"1 + x", "Reduced form: 1 * X^0 + 1 * X^1 = 0\nDegree: 1\nThe solutions is: -1.0\n"},
 			{"1 + x = 1 + x", "Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n"},
 			{"-1 + x + 2 = 2 - 1 + x", "Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n"},
-			{"1 + x = -1 + x", "Reduced form: 2 * X^0 = 0\nDegree: 0\nThere is no solution because the equation is inconsistent\n"}
+			{"1 + x = -1 + x", "Reduced form: 2 * X^0 = 0\nDegree: 0\nThere is no solution because the equation is inconsistent\n"},
+			{"2 * x ^ 1 = 3", "Reduced form: 2 * X^1 - 3 * X^0 = 0\nDegree: 1\nThe solutions is: 1.5\n"},
+			{"-2 * x ^ 1 = 3", "Reduced form: -2 * X^1 - 3 * X^0 = 0\nDegree: 1\nThe solutions is: -1.5\n"},
+			{"2.0 * x ^ 1 = -3.0", "Reduced form: 2 * X^1 + 3 * X^0 = 0\nDegree: 1\nThe solutions is: -1.5\n"}
 		};
 		testInputs(inputs);
 	}

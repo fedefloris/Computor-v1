@@ -32,6 +32,8 @@ public class EquationTest {
 		Assert.assertEquals(equation.toString(), "4 * X^0 = 0");
 		equation.add(new Variable(0, -4));
 		Assert.assertEquals(equation.toString(), "0 = 0");
+		equation.add(new Variable(0, -2));
+		Assert.assertEquals(equation.toString(), "-2 * X^0 = 0");
 	}
 
 	@Test

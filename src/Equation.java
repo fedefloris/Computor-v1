@@ -20,7 +20,12 @@ public class Equation {
 				res.append(v.toString());
 		}
 		res.append(" = 0");
-		res.delete(0, 3);
+		if (res.charAt(1) == '+')
+			res.delete(0, 3);
+		else {
+			res.delete(0, 3);
+			res.insert(0, '-');
+		}
 		return (res.toString());
 	}
 
