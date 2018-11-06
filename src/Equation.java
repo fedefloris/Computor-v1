@@ -15,7 +15,7 @@ public class Equation {
 		if (variables.size() == 0)
 			return ("0 = 0");
 		res = new StringBuilder();
-		for(Variable v : variables) {
+		for (Variable v : variables) {
 				res.append(" ");
 				res.append(v.toString());
 		}
@@ -29,7 +29,7 @@ public class Equation {
 	}
 
 	public double getCoefficientOf(int degree) {
-		for(Variable v : variables)
+		for (Variable v : variables)
 				if (v.getDegree() == degree)
 					return (v.getCoefficient());
 		return (0);
@@ -53,7 +53,7 @@ public class Equation {
 		int max;
 
 		max = 0;
-		for(Variable v : variables) {
+		for (Variable v : variables) {
 				if (max < v.getDegree())
 					max = v.getDegree();
 		}
