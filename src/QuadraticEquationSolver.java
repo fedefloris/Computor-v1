@@ -7,6 +7,7 @@ public class QuadraticEquationSolver implements IEquationSolver {
 		b = equation.getCoefficientOf(1);
 		c = equation.getCoefficientOf(0);
 		det = b * b - 4 * a * c;
+		det += 0.0; // avoid -0.0
 		System.out.println("Discriminant: " + det);
 		if (det == 0)
 			solveZeroDet(det, a, b);
@@ -15,21 +16,30 @@ public class QuadraticEquationSolver implements IEquationSolver {
 	}
 
 	private void solveZeroDet(double det, double a, double b) {
-		System.out.println("The solutions is:");
-		System.out.println((-b * Math.sqrt(det)) / (2 * a));
+		double x;
+
+		x = (-b * Math.sqrt(det)) / (2 * a);
+		x += 0.0; // avoid -0.0
+		System.out.println("The solutions is: " + x);
 	}
 
 	private void solveNonZeroDet(double det, double a, double b) {
 		String immaginary;
+		double x1;
+		double x2;
 
 		immaginary = "";
 		if (det < 0) {
 			det *= -1;
 			immaginary = "i";
 		}
+		x1 = (-b + -Math.sqrt(det)) / (2 * a);
+		x1 += 0.0; // avoid -0.0
+		x2 = (-b + +Math.sqrt(det)) / (2 * a);
+		x2 += 0.0; // avoid -0.0
 		System.out.println("The two solutions are: ");
-		System.out.println((-b + -Math.sqrt(det)) / (2 * a) + immaginary);
-		System.out.println((-b + Math.sqrt(det)) / (2 * a) + immaginary);
+		System.out.println(x1 + immaginary);
+		System.out.println(x2 + immaginary);
 	}
 
 }

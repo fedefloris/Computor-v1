@@ -12,8 +12,8 @@ public class LinearEquationSolver implements IEquationSolver {
 				System.out.println("There is no solution because the equation is inconsistent");
 		}
 		else {
-			System.out.println("The solutions is:");
-			System.out.println((-b / a));
+			System.out.print("The solutions is: ");
+			System.out.println(((-b / a) + 0.0)); // avoid -0.0
 		}
 	}
 

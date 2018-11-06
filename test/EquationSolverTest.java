@@ -1,5 +1,7 @@
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+import java.util.List;
+import java.util.ArrayList;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.After;
@@ -25,20 +27,37 @@ public class EquationSolverTest {
 
 	@Test
 	public void testLinearEquationSolver() {
-		solver.solve(parser.parse(""));
-		Assert.assertEquals("Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n", out.toString());
-		out.reset();
-		solver.solve(parser.parse("1"));
-		Assert.assertEquals("Reduced form: 1 * X^0 = 0\nDegree: 0\nThere is no solution because the equation is inconsistent\n", out.toString());
-		out.reset();
-		solver.solve(parser.parse("1 + x"));
-		Assert.assertEquals("Reduced form: 1 * X^0 + 1 * X^1 = 0\nDegree: 1\nThe solutions is:\n-1.0\n", out.toString());
-		out.reset();
-		solver.solve(parser.parse("1 + x = 1 + x"));
-		Assert.assertEquals("Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n", out.toString());
-		out.reset();
-		solver.solve(parser.parse("1 + x = -1 + x"));
-		Assert.assertEquals("Reduced form: 2 * X^0 = 0\nDegree: 0\nThere is no solution because the equation is inconsistent\n", out.toString());
+		String[][] inputs;
+
+		inputs = new String[][] {
+			{"", "Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n"},
+			{"1", "Reduced form: 1 * X^0 = 0\nDegree: 0\nThere is no solution because the equation is inconsistent\n"},
+			{"1 + x", "Reduced form: 1 * X^0 + 1 * X^1 = 0\nDegree: 1\nThe solutions is: -1.0\n"},
+			{"1 + x = 1 + x", "Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n"},
+			{"-1 + x + 2 = 2 - 1 + x", "Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n"},
+			{"1 + x = -1 + x", "Reduced form: 2 * X^0 = 0\nDegree: 0\nThere is no solution because the equation is inconsistent\n"}
+		};
+		testInputs(inputs);
+	}
+
+	@Test
+	public void testQuadraticEquationSolver() {
+		String[][] inputs;
+
+		inputs = new String[][] {
+			{"x ^ 2", "Reduced form: 1 * X^2 = 0\nDegree: 2\nDiscriminant: 0.0\nThe solutions is: 0.0\n"}
+		};
+		testInputs(inputs);
+	}
+
+	private void testInputs(String[][] inputs) {
+		for (String[] input : inputs) {
+			if (input.length != 2)
+				continue;
+			out.reset();
+			solver.solve(parser.parse(input[0]));
+			Assert.assertEquals(input[1], out.toString());
+		}
 	}
 
 }
