@@ -32,13 +32,15 @@ public class EquationSolverTest {
 		inputs = new String[][] {
 			{"", "Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n"},
 			{"1", "Reduced form: 1 * X^0 = 0\nDegree: 0\nThere is no solution because the equation is inconsistent\n"},
-			{"1 + x", "Reduced form: 1 * X^0 + 1 * X^1 = 0\nDegree: 1\nThe solutions is: -1.0\n"},
 			{"1 + x = 1 + x", "Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n"},
-			{"-1 + x + 2 = 2 - 1 + x", "Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n"},
-			{"1 + x = -1 + x", "Reduced form: 2 * X^0 = 0\nDegree: 0\nThere is no solution because the equation is inconsistent\n"},
+			{"5 * X^2 = 5 * X^2", "Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n"},
+			{"1 + x", "Reduced form: 1 * X^0 + 1 * X^1 = 0\nDegree: 1\nThe solutions is: -1.0\n"},
 			{"2 * x ^ 1 = 3", "Reduced form: 2 * X^1 - 3 * X^0 = 0\nDegree: 1\nThe solutions is: 1.5\n"},
 			{"-2 * x ^ 1 = 3", "Reduced form: -2 * X^1 - 3 * X^0 = 0\nDegree: 1\nThe solutions is: -1.5\n"},
-			{"2.0 * x ^ 1 = -3.0", "Reduced form: 2 * X^1 + 3 * X^0 = 0\nDegree: 1\nThe solutions is: -1.5\n"}
+			{"2.0 * x ^ 1 = -3.0", "Reduced form: 2 * X^1 + 3 * X^0 = 0\nDegree: 1\nThe solutions is: -1.5\n"},
+			{"5 = 4 + 7 * x", "Reduced form: 1 * X^0 - 7 * X^1 = 0\nDegree: 1\nThe solutions is: 0.14285714285714285\n"},
+			{"-1 + x + 2 = 2 - 1 + x", "Reduced form: 0 = 0\nDegree: 0\nEvery value for x is a solution\n"},
+			{"1 + x = -1 + x", "Reduced form: 2 * X^0 = 0\nDegree: 0\nThere is no solution because the equation is inconsistent\n"},
 		};
 		testInputs(inputs);
 	}
@@ -48,7 +50,8 @@ public class EquationSolverTest {
 		String[][] inputs;
 
 		inputs = new String[][] {
-			{"x ^ 2", "Reduced form: 1 * X^2 = 0\nDegree: 2\nDiscriminant: 0.0\nThe solutions is: 0.0\n"}
+			{"x ^ 2", "Reduced form: 1 * X^2 = 0\nDegree: 2\nDiscriminant: 0.0\nThe solutions is: 0.0\n"},
+			{"5 * X^0 + 13 * X^1 + 3 * X^2 = 1 * X^0 + 1 * X^1", "Reduced form: 4 * X^0 + 12 * X^1 + 3 * X^2 = 0\nDegree: 2\nDiscriminant: 96.0\nThe two solutions are:\n-3.632993161855452\n-0.3670068381445481\n"}
 		};
 		testInputs(inputs);
 	}

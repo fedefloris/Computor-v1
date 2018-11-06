@@ -37,7 +37,7 @@ public class QuadraticEquationSolver implements IEquationSolver {
 		x1 += 0.0; // avoid -0.0
 		x2 = (-b + +Math.sqrt(det)) / (2 * a);
 		x2 += 0.0; // avoid -0.0
-		System.out.println("The two solutions are: ");
+		System.out.println("The two solutions are:");
 		System.out.println(x1 + immaginary);
 		System.out.println(x2 + immaginary);
 	}
