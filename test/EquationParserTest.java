@@ -59,6 +59,7 @@ public class EquationParserTest {
 		inputs.add("==");
 		inputs.add("2*x^1=0=0");
 		inputs.add("2*x^1==");
+		inputs.add("2**x^1");
 		inputs.add("0=0=2*x^1");
 		inputs.add("0==2*x^1");
 		inputs.add("2*x^1=2*x^1=2*x^1");

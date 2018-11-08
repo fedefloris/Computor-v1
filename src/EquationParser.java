@@ -43,12 +43,12 @@ public class EquationParser {
 		for (Token token : tokens) {
 			if (token.getType() == TokenType.COEFFICIENT) {
 				if (!token.getValue().endsWith("*")) {
-					coefficient *= Double.parseDouble(token.getValue());
+					coefficient *= parseCoefficient(token.getValue());
 					equation.add(new Variable(0, coefficient * sign));
 					coefficient = 1.0;
 				}
 				else
-					coefficient *= Double.parseDouble(token.getValue().replace("*", ""));
+					coefficient *= parseCoefficient(token.getValue().replace("*", ""));
 			}
 			else if (token.getType() == TokenType.VARIABLE) {
 				if (token.getValue().startsWith("-"))
@@ -63,6 +63,20 @@ public class EquationParser {
 					throw new ParserException("Invalid Syntax: " + token.getValue());
 			}
 		}
+	}
+
+	private double parseCoefficient(String value) {
+		double coefficient;
+
+		try {
+			coefficient = Double.parseDouble(value);
+		}
+		catch (Exception e) {
+			throw new ParserException("Invalid Syntax: " + value);
+		}
+		if (!Double.isFinite(coefficient))
+			throw new ParserException("Invalid Syntax: " + value);
+		return (coefficient);
 	}
 
 	private int parseDegree(String value) {

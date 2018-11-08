@@ -1,3 +1,2 @@
 - solved 3rd degree
-- EquatioSolverTest
 - implement sqrt
