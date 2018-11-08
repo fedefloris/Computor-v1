@@ -30,7 +30,7 @@ public class QuadraticEquationSolver implements IEquationSolver {
 	private void solveZeroDet(double det, double a, double b) {
 		double x;
 
-		x = (-b * Math.sqrt(det)) / (2 * a);
+		x = (-b * Utility.sqrt(det)) / (2 * a);
 		x += 0.0; // avoid -0.0
 		System.out.println("The solutions is: " + x);
 	}
@@ -45,9 +45,9 @@ public class QuadraticEquationSolver implements IEquationSolver {
 			det *= -1;
 			immaginary = "i";
 		}
-		x1 = (-b + -Math.sqrt(det)) / (2 * a);
+		x1 = (-b - Utility.sqrt(det)) / (2 * a);
 		x1 += 0.0; // avoid -0.0
-		x2 = (-b + +Math.sqrt(det)) / (2 * a);
+		x2 = (-b + Utility.sqrt(det)) / (2 * a);
 		x2 += 0.0; // avoid -0.0
 		System.out.println("The two solutions are:");
 		System.out.println(x1 + immaginary);

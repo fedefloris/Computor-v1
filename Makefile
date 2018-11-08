@@ -13,7 +13,7 @@ CLASS_DIRS = $(TEST_CLASS_DIR) $(SRC_CLASS_DIR)
 SRC_DIR = src
 TEST_DIR = test
 
-SRC = ComputorV1 \
+SRC = ComputorV1 Utility \
 	Variable Equation \
 	EquationTokenizer Token TokenPattern TokenType \
 	EquationParser ParserException \
