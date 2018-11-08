@@ -13,7 +13,17 @@ CLASS_DIRS = $(TEST_CLASS_DIR) $(SRC_CLASS_DIR)
 SRC_DIR = src
 TEST_DIR = test
 
-TEST_FILES = $(patsubst $(TEST_DIR)/%.java, %,$(shell find $(TEST_DIR) -name '*.java'))
+SRC = ComputorV1 \
+	Variable Equation \
+	EquationTokenizer Token TokenPattern TokenType \
+	EquationParser ParserException \
+	IEquationSolver EquationSolver \
+	LinearEquationSolver QuadraticEquationSolver
+SRC := $(addprefix $(SRC_DIR)/, $(addsuffix .java, $(SRC)))
+
+TEST_SRC = VariableTest EquationTest \
+	EquationParserTest EquationSolverTest
+TEST_SRC_WIDTH_DIR = $(addprefix $(TEST_DIR)/, $(addsuffix .java, $(TEST_SRC)))
 
 GREEN_COLOR = "\033[0;32m"
 YELLOW_COLOR = "\033[0;33m"
@@ -23,14 +33,14 @@ DEFAULT_COLOR = "\033[0m"
 all: compile
 
 tests: compile
-	@javac -cp $(JUNIT_JAR):$(SRC_CLASS_DIR) -d $(TEST_CLASS_DIR) $(TEST_DIR)/*.java
-	@java -cp $(JUNIT_JAR):$(HAMCREST_JAR):$(TEST_CLASS_DIR):$(SRC_CLASS_DIR) $(JUNIT_MAIN) $(TEST_FILES)
+	@javac -cp $(JUNIT_JAR):$(SRC_CLASS_DIR) -d $(TEST_CLASS_DIR) $(TEST_SRC_WIDTH_DIR)
+	@java -cp $(JUNIT_JAR):$(HAMCREST_JAR):$(TEST_CLASS_DIR):$(SRC_CLASS_DIR) $(JUNIT_MAIN) $(TEST_SRC)
 
 compile: $(CLASS_DIRS)
 	@printf $(YELLOW_COLOR)
 	@printf "Compiling... "
 	@printf $(RED_COLOR)
-	@javac -d $(SRC_CLASS_DIR) $(SRC_DIR)/*.java
+	@javac -d $(SRC_CLASS_DIR) $(SRC)
 	@printf $(GREEN_COLOR)
 	@printf "[OK]\n"
 	@printf $(DEFAULT_COLOR)
@@ -42,7 +52,7 @@ clean:
 	@printf $(YELLOW_COLOR)
 	@printf "Cleaning... "
 	@printf $(RED_COLOR)
-	@rm -rf $(CLASS_DIRS) $(CLASS_DIR)
+	@rm -rf $(CLASS_DIR)
 	@printf $(GREEN_COLOR)
 	@printf "[OK]\n"
 	@printf $(DEFAULT_COLOR)
