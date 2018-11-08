@@ -20,7 +20,7 @@ public class EquationParser {
 
 		equation = new Equation();
 		tokenizer = new EquationTokenizer();
-		input = input.replace(" ", "").toLowerCase();
+		input = input.replaceAll("\\s","").toLowerCase();
 		addTokenPatterns(tokenizer);
 		tokenizer.tokenize(input);
 		parseTokens(equation, tokenizer.getTokens());
@@ -43,12 +43,12 @@ public class EquationParser {
 		for (Token token : tokens) {
 			if (token.getType() == TokenType.COEFFICIENT) {
 				if (!token.getValue().endsWith("*")) {
-					coefficient = Double.parseDouble(token.getValue());
+					coefficient *= Double.parseDouble(token.getValue());
 					equation.add(new Variable(0, coefficient * sign));
 					coefficient = 1.0;
 				}
 				else
-					coefficient = Double.parseDouble(token.getValue().replace("*", ""));
+					coefficient *= Double.parseDouble(token.getValue().replace("*", ""));
 			}
 			else if (token.getType() == TokenType.VARIABLE) {
 				if (token.getValue().startsWith("-"))
@@ -71,8 +71,14 @@ public class EquationParser {
 
 		degree = 1;
 		powerIndex = value.indexOf('^');
-		if (powerIndex != -1)
-			degree = Integer.parseInt(value.substring(powerIndex + 1));
+		if (powerIndex != -1) {
+			try {
+				degree = Integer.parseInt(value.substring(powerIndex + 1));
+			}
+			catch (Exception e) {
+				throw new ParserException("Invalid Syntax: " + value);
+			}
+		}
 		return (degree);
 	}
 
