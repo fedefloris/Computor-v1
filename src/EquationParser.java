@@ -29,7 +29,7 @@ public class EquationParser {
 
 	private void addTokenPatterns(EquationTokenizer tokenizer) {
 		tokenizer.add("(\\+|-)?[0-9]+(\\.[0-9]+)?\\*?", TokenType.COEFFICIENT);
-    tokenizer.add("(\\+|-)?x(\\^[0-9]+)?", TokenType.VARIABLE);
+    tokenizer.add("(\\+|-)?x(\\^?[0-9]+)?", TokenType.VARIABLE);
     tokenizer.add("=", TokenType.EQUALS_SIGN);
 	}
 
@@ -84,10 +84,10 @@ public class EquationParser {
 		int degree;
 
 		degree = 1;
-		powerIndex = value.indexOf('^');
-		if (powerIndex != -1) {
+		value = value.replaceAll("\\^|-|\\+", "");
+		if (value.length() > 1) {
 			try {
-				degree = Integer.parseInt(value.substring(powerIndex + 1));
+				degree = Integer.parseInt(value.substring(1));
 			}
 			catch (Exception e) {
 				throw new ParserException("Invalid Syntax: " + value);
