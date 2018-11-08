@@ -1,2 +1,0 @@
-- solved 3rd degree
-- implement sqrt
