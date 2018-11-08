@@ -62,8 +62,15 @@ public class Equation {
 			if (variables.get(index).getCoefficient() == 0)
 				variables.remove(index);
 		}
-		else
-			variables.add(v);
+		else {
+			index = 0;
+			while (index < variables.size()) {
+				if (variables.get(index).getDegree() < v.getDegree())
+					break;
+				index++;
+			}
+			variables.add(index, v);
+		}
 	}
 
 	public int getDegree() {

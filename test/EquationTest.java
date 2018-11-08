@@ -25,9 +25,9 @@ public class EquationTest {
 		equation.add(new Variable(1, 5));
 		equation.add(new Variable(1, -1));
 		equation.add(new Variable(2, -9.3));
-		Assert.assertEquals(equation.toString(), "4 * X^0 + 4 * X^1 - 9.3 * X^2 = 0");
+		Assert.assertEquals(equation.toString(), "-9.3 * X^2 + 4 * X^1 + 4 * X^0 = 0");
 		equation.add(new Variable(2, 9.3));
-		Assert.assertEquals(equation.toString(), "4 * X^0 + 4 * X^1 = 0");
+		Assert.assertEquals(equation.toString(), "4 * X^1 + 4 * X^0 = 0");
 		equation.add(new Variable(1, -4));
 		Assert.assertEquals(equation.toString(), "4 * X^0 = 0");
 		equation.add(new Variable(0, -4));
