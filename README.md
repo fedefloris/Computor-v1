@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.com/fedefloris/Computor_v1.svg?token=dH8C3CpkpNBzxeKzZ8gb&branch=master)](https://travis-ci.com/fedefloris/Computor_v1)
 
 ## What is Computor_v1?
-Computor_v1 is a program that solves polynomial equations of degree less or equal to 3.
+Computor_v1 is a program that solves polynomial equations of degree less than or equal to 3.
 
 For more details look at the [subject](subject.pdf)
 
