@@ -37,8 +37,7 @@ public class QuadraticEquationSolver implements IEquationSolver {
 
 	private void solveNonZeroDet(double det, double a, double b) {
 		String immaginary;
-		double x1;
-		double x2;
+		double x1, x2;
 
 		immaginary = "";
 		if (det < 0) {

@@ -18,7 +18,7 @@ SRC = ComputorV1 Utility \
 	EquationTokenizer Token TokenPattern TokenType \
 	EquationParser ParserException \
 	IEquationSolver EquationSolver \
-	LinearEquationSolver QuadraticEquationSolver
+	LinearEquationSolver QuadraticEquationSolver CubicEquationSolver
 SRC := $(addprefix $(SRC_DIR)/, $(addsuffix .java, $(SRC)))
 
 TEST_SRC = VariableTest EquationTest \

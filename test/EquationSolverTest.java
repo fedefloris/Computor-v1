@@ -70,8 +70,8 @@ public class EquationSolverTest {
 		String[][] inputs;
 
 		inputs = new String[][] {
-			{"x ^ 3 = -1.1", "Reduced form: 1 * X^3 + 1.1 * X^0 = 0\nDegree: 3\nThe degree is strictly greater than 2, I can't solve\n"},
-			{"x ^ 99999999", "Reduced form: 1 * X^99999999 = 0\nDegree: 99999999\nThe degree is strictly greater than 2, I can't solve\n"}
+			{"x ^ 4 = -1.1", "Reduced form: 1 * X^4 + 1.1 * X^0 = 0\nDegree: 4\nThe degree is strictly greater than 3, I can't solve\n"},
+			{"x ^ 99999999", "Reduced form: 1 * X^99999999 = 0\nDegree: 99999999\nThe degree is strictly greater than 3, I can't solve\n"}
 		};
 		testInputs(inputs);
 	}
