@@ -12,7 +12,7 @@ git clone https://github.com/fedefloris/Computor_v1.git && cd Computor_v1 && mak
 ```
 Linear equations:
 ```console
-$> java -cp class/src ComputorV1 "x + 100 = -1"
+$> java -cp class/src ComputorV1 "x + 50*2 = -1"
 Reduced form: 1 * X^1 + 101 * X^0 = 0
 Degree: 1
 The solutions is: -101.0
