@@ -66,7 +66,19 @@ public class EquationSolverTest {
 	}
 
 	@Test
-	public void testGreaterThanQuadraticEquation() {
+	public void testCubicEquationSolver() {
+		String[][] inputs;
+
+		inputs = new String[][] {
+			{"2*x3 - 4*x2 - 22*x + 24", "Reduced form: 2 * X^3 - 4 * X^2 - 22 * X^1 + 24 * X^0 = 0\nDegree: 3\nThe solutions are:\n3.9999999999999996\n-2.999999999999999\n0.9999999999999996\n"},
+			{"3*x3 - 10*x2 + 14*x + 27", "Reduced form: 3 * X^3 - 10 * X^2 + 14 * X^1 + 27 * X^0 = 0\nDegree: 3\nThe solutions are:\n-0.9999999999999933\n2.1666666666666634 + i * 2.0749832663314605\n2.1666666666666634 - i * 2.0749832663314605\n"},
+			{"x3 + 6*x2 + 12*x + 8", "Reduced form: 1 * X^3 + 6 * X^2 + 12 * X^1 + 8 * X^0 = 0\nDegree: 3\nThe solutions is: -2.0\n"},
+		};
+		testInputs(inputs);
+	}
+
+	@Test
+	public void testGreaterThanCubicEquation() {
 		String[][] inputs;
 
 		inputs = new String[][] {

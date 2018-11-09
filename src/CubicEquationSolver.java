@@ -59,8 +59,7 @@ public class CubicEquationSolver implements IEquationSolver {
 		double x;
 
 		x = -Math.pow(d / a, 1.0 / 3);
-		System.out.println("The solutions is:");
-		System.out.println(x);
+		System.out.println("The solutions is: "+ x);
 	}
 
 	private void solveRealRoots(double a, double b, double g, double h) {
@@ -94,10 +93,6 @@ public class CubicEquationSolver implements IEquationSolver {
 		x1 = s + u - (b / (3 * a));
 		x2 = -((s + u) / 2) - (b / (3 * a));
 		immaginary = ((s - u) * Math.sqrt(3)) / 2;
-		System.out.println("r:"+r);
-		System.out.println("s:"+s);
-		System.out.println("t:"+t);
-		System.out.println("u:"+u);
 		System.out.println("The solutions are:");
 		System.out.println(x1);
 		System.out.println(x2 + " + i * " + immaginary);
