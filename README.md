@@ -12,13 +12,7 @@ git clone https://github.com/fedefloris/Computor_v1.git && cd Computor_v1 && mak
 ```
 Linear equations:
 ```console
-$> java -cp class/src ComputorV1 "x + 50*2 = -1"
-Reduced form: 1 * X^1 + 101 * X^0 = 0
-Degree: 1
-The solutions is: -101.0
-```
-```console
-$> java -cp class/src ComputorV1 "1 + 4*x1"
+$> java -cp class/src ComputorV1 "1 + 2*2*x1"
 Reduced form: 4 * X^1 + 1 * X^0 = 0
 Degree: 1
 The solutions is: -0.25
@@ -60,15 +54,6 @@ Discriminant: 49.0
 The two solutions are:
 -3.0000000000000004
 0.5000000000000004
-```
-```console
-$> java -cp class/src ComputorV1 "x2 - 5*x + 10 = 0"
-Reduced form: 1 * X^2 - 5 * X^1 + 10 * X^0 = 0
-Degree: 2
-Discriminant: -15.0
-The two solutions are:
-0.5635083268962915i
-4.436491673103708i
 ```
 Cubic equations:
 ```console
