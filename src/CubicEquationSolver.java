@@ -23,18 +23,18 @@ public class CubicEquationSolver implements IEquationSolver {
 		f = getF(a, b, c);
 		g = getG(a, b, c, d);
 		h = getH(f, g);
-		if (h > 0)
-			solveNotRealRoots(a, b, g, h);
-		else if (f == 0 && g == 0 && h == 0)
+		if (f == 0 && g == 0 && h == 0)
 			solveOneRoot(a, d);
-		else
+		else if (h <= 0)
 			solveRealRoots(a, b, g, h);
+		else
+			solveNotRealRoots(a, b, g, h);
 	}
 
 	private double getF(double a, double b, double c) {
 		double f;
 
-		f = (3 * (c / a) - (b * b) / (a * a)) / 3;
+		f = ((3 * c / a) - (b * b) / (a * a)) / 3;
 		return (f);
 	}
 
@@ -43,7 +43,7 @@ public class CubicEquationSolver implements IEquationSolver {
 
 		g = (2 * b * b * b) / (a * a * a);
 		g += (-9 * b * c) / (a * a);
-		g += (27 * d) / a;
+		g += 27 * d / a;
 		g /= 27;
 		return (g);
 	}
@@ -66,7 +66,7 @@ public class CubicEquationSolver implements IEquationSolver {
 		double i, j, k, l, m, n, p;
 		double x1, x2, x3;
 
-		i = Math.pow((g * g) / 4 - h, 1.0 / 2);
+		i = Math.sqrt((g * g) / 4 - h);
 		j = Math.pow(i, 1.0 / 3);
 		k = Math.acos(-g / (2 * i));
 		l = -j;
@@ -86,17 +86,23 @@ public class CubicEquationSolver implements IEquationSolver {
 		double x1, x2, immaginary;
 		double r, s, t, u;
 
-		r = -g / 2 + Math.sqrt(h);
-		s = Math.pow(r, 1.0 / 3);
-		t = -g / 2 - Math.sqrt(h);
-		u = -Math.pow(-t, 1.0 / 3);
+		r = -(g / 2) + Math.sqrt(h);
+		if (r >= 0)
+			s = Math.pow(r, 1.0 / 3);
+		else
+			s = -Math.pow(-r, 1.0 / 3);
+		t = -(g / 2) - Math.sqrt(h);
+		if (t >= 0)
+			u = Math.pow(t, 1.0 / 3);
+		else
+			u = -Math.pow(-t, 1.0 / 3);
 		x1 = s + u - (b / (3 * a));
 		x2 = -((s + u) / 2) - (b / (3 * a));
 		immaginary = ((s - u) * Math.sqrt(3)) / 2;
 		System.out.println("The solutions are:");
 		System.out.println(x1);
-		System.out.println(x2 + " + i * " + immaginary);
-		System.out.println(x2 + " - i * " + immaginary);
+		System.out.println(x2 + " + " + immaginary + "i");
+		System.out.println(x2 + " - " + immaginary + "i");
 	}
 
 }
