@@ -15,7 +15,7 @@ Linear equations:
 $> java -cp class/src ComputorV1 "1 + 2*2*x1"
 Reduced form: 4 * X^1 + 1 * X^0 = 0
 Degree: 1
-The solutions is: -0.25
+The solution is: -0.25
 ```
 ```console
 $> java -cp class/src ComputorV1 "2 = 0"
@@ -35,7 +35,7 @@ $> java -cp class/src ComputorV1 "x2"
 Reduced form: 1 * X^2 = 0
 Degree: 2
 Discriminant: 0.0
-The solutions is: 0.0
+The solution is: 0.0
 ```
 ```console
 $> java -cp class/src ComputorV1 "x2 = -1"
@@ -69,7 +69,7 @@ The solutions are:
 $> java -cp class/src ComputorV1 "x3 + 6*x2 + 12*x + 8 = 0"
 Reduced form: 1 * X^3 + 6 * X^2 + 12 * X^1 + 8 * X^0 = 0
 Degree: 3
-The solutions is: -2.0
+The solution is: -2.0
 ```
 ```console
 $> java -cp class/src ComputorV1 "10*x3 + 2*x2 + 4*x + 7 = 0"
