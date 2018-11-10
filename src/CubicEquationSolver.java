@@ -59,7 +59,7 @@ public class CubicEquationSolver implements IEquationSolver {
 		double x;
 
 		x = -Math.pow(d / a, 1.0 / 3);
-		System.out.println("The solutions is: "+ x);
+		System.out.println("The solution is: "+ x);
 	}
 
 	private void solveRealRoots(double a, double b, double g, double h) {

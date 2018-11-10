@@ -32,7 +32,7 @@ public class QuadraticEquationSolver implements IEquationSolver {
 
 		x = (-b * Utility.sqrt(det)) / (2 * a);
 		x += 0.0; // avoid -0.0
-		System.out.println("The solutions is: " + x);
+		System.out.println("The solution is: " + x);
 	}
 
 	private void solveNonZeroDet(double det, double a, double b) {
