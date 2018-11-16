@@ -29,8 +29,8 @@ public class EquationParser {
 
 	private void addTokenPatterns(EquationTokenizer tokenizer) {
 		tokenizer.add("(\\+|-)?[0-9]+(\\.[0-9]+)?\\*?", TokenType.COEFFICIENT);
-    tokenizer.add("(\\+|-)?x(\\^?[0-9]+)?", TokenType.VARIABLE);
-    tokenizer.add("=", TokenType.EQUALS_SIGN);
+		tokenizer.add("(\\+|-)?x(\\^?[0-9]+)?", TokenType.VARIABLE);
+		tokenizer.add("=", TokenType.EQUALS_SIGN);
 	}
 
 	private void parseTokens(Equation equation, List<Token> tokens) {

@@ -21,8 +21,8 @@ public class ComputorV1 {
 			solve(parse(args[0]));
 		}
 		catch (ParserException e) {
-      System.out.println(e.getMessage());
-    }
+			System.out.println(e.getMessage());
+		}
 	}
 
 	private static void displayUsage() {
