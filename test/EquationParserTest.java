@@ -83,12 +83,12 @@ public class EquationParserTest {
 	}
 
 	private String createString(char value, int size) {
-	  StringBuilder s;
+		StringBuilder s;
 
 		s = new StringBuilder(size);
-	  for (int i = 0; i < size; i++)
-	    s.append(value);
-	  return (s.toString());
+		for (int i = 0; i < size; i++)
+			s.append(value);
+		return (s.toString());
 	}
 
 }
