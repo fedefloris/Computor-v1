@@ -6,7 +6,7 @@ Computor_v1 is a program that solves polynomial equations of degree less than or
 
 For more details look at the [subject](subject.pdf)
 
-## How do I use it?
+## Using the project
 ```console
 git clone https://github.com/fedefloris/Computor_v1.git && cd Computor_v1 && make
 ```
@@ -80,7 +80,7 @@ The solutions are:
 0.2989977922886229 + 0.8875799436083823i
 0.2989977922886229 - 0.8875799436083823i
 ```
-## How can I test it?
+## Running the tests
 
 ```console
 make tests
