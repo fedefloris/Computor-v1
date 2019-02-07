@@ -1,5 +1,5 @@
 # Computor_v1 - 42Born2Code
-[![Build Status](https://travis-ci.com/fedefloris/Computor_v1.svg?token=dH8C3CpkpNBzxeKzZ8gb&branch=master)](https://travis-ci.com/fedefloris/Computor_v1)
+[![Build Status](https://travis-ci.com/fedefloris/Computor_v1.svg?token=dH8C3CpkpNBzxeKzZ8gb&branch=master)](https://travis-ci.com/fedefloris/Computor_v1) ![](https://img.shields.io/github/license/fedefloris/Computor_v1.svg)
 
 ## What is Computor_v1?
 Computor_v1 is a program that solves polynomial equations of degree less than or equal to 3.
