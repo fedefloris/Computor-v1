@@ -28,8 +28,8 @@ public class Equation {
 			return ("0 = 0");
 		res = new StringBuilder();
 		for (Variable v : variables) {
-				res.append(" ");
-				res.append(v.toString());
+			res.append(" ");
+			res.append(v.toString());
 		}
 		res.append(" = 0");
 		if (res.charAt(1) == '+')
@@ -47,8 +47,8 @@ public class Equation {
 
 	public double getCoefficientOf(int degree) {
 		for (Variable v : variables)
-				if (v.getDegree() == degree)
-					return (v.getCoefficient());
+			if (v.getDegree() == degree)
+				return (v.getCoefficient());
 		return (0);
 	}
 
@@ -78,8 +78,8 @@ public class Equation {
 
 		max = 0;
 		for (Variable v : variables) {
-				if (max < v.getDegree())
-					max = v.getDegree();
+			if (max < v.getDegree())
+				max = v.getDegree();
 		}
 		return (max);
 	}
