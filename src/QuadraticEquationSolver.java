@@ -23,8 +23,10 @@ public class QuadraticEquationSolver implements IEquationSolver {
 		System.out.println("Discriminant: " + det);
 		if (det == 0)
 			solveZeroDet(det, a, b);
+		else if (det > 0)
+			solvePositiveDet(det, a, b);
 		else
-			solveNonZeroDet(det, a, b);
+			solveNegativeDet(det, a, b);
 	}
 
 	private void solveZeroDet(double det, double a, double b) {
@@ -35,22 +37,27 @@ public class QuadraticEquationSolver implements IEquationSolver {
 		System.out.println("The solution is: " + x);
 	}
 
-	private void solveNonZeroDet(double det, double a, double b) {
-		String immaginary;
+	private void solvePositiveDet(double det, double a, double b) {
 		double x1, x2;
 
-		immaginary = "";
-		if (det < 0) {
-			det *= -1;
-			immaginary = "i";
-		}
 		x1 = (-b - Utility.sqrt(det)) / (2 * a);
 		x1 += 0.0; // avoid -0.0
 		x2 = (-b + Utility.sqrt(det)) / (2 * a);
 		x2 += 0.0; // avoid -0.0
 		System.out.println("The two solutions are:");
-		System.out.println(x1 + immaginary);
-		System.out.println(x2 + immaginary);
+		System.out.println(x1);
+		System.out.println(x2);
+	}
+
+	private void solveNegativeDet(double det, double a, double b) {
+		double x, immaginary;
+
+		det *= -1;
+		x = (-b / (2 * a)) + 0.0;
+		immaginary = (Utility.sqrt(det) / (2 * a)) + 0.0;
+		System.out.println("The two solutions are:");
+		System.out.println(x + " - " + immaginary + "i");
+		System.out.println(x + " + " + immaginary + "i");
 	}
 
 }
