@@ -43,8 +43,8 @@ Reduced form: 1 * X^2 + 1 * X^0 = 0
 Degree: 2
 Discriminant: -4.0
 The two solutions are:
--1.0i
-1.0i
+0.0 - 1.0i
+0.0 + 1.0i
 ```
 ```console
 $> java -cp class/src ComputorV1 "2*x2 + 5*x - 3 = 0"
