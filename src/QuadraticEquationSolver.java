@@ -30,7 +30,7 @@ public class QuadraticEquationSolver implements IEquationSolver {
 	private void solveZeroDet(double det, double a, double b) {
 		double x;
 
-		x = (-b * Utility.sqrt(det)) / (2 * a);
+		x = (-b + Utility.sqrt(det)) / (2 * a);
 		x += 0.0; // avoid -0.0
 		System.out.println("The solution is: " + x);
 	}
